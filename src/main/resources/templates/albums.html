@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Albums</title>
+</head>
+
+<link rel="stylesheet" href="/css/file.css">
+<body>
+<h1>Album List</h1>
+<li th:each="album : ${albums}">
+    <h2 th:text="${album.title}">Album Title</h2>
+    <br><span th:text="${album.artist}">Album Artist</span>
+    <br><span th:text="${album.songCount}">Album Song Count</span>
+    <br><span th:text="${album.length}">Album Length</span>
+    <br><img th:src="${album.imageUrl}">
+</li>
+</body>
+</html>
