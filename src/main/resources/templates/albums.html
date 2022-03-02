@@ -18,5 +18,24 @@
     <br><span th:text="${album.length}">Album Length</span>
     <br><img th:src="${album.imageUrl}">
 </li>
+
+<form action="/addAlbum" method="post">
+    <fieldset>
+        <legend>Add an Album</legend>
+        <label for="title">Album Title</label>
+        <input type="text" name="title">
+        <label for="artist">Album Artist</label>
+        <input type="text" name="artist">
+        <label for="songCount">Song Count</label>
+        <input type="number" name="songCount">
+        <label for="length">Album Length</label>
+        <input type="number" name="length">
+        <label for="imageUrl">Album Cover Art</label>
+        <input type="text" name="image Url">
+        <input type="submit" value="Add Album">
+    </fieldset>
+</form>
+<div th:text="${testString}">Test Div</div>
+
 </body>
 </html>
