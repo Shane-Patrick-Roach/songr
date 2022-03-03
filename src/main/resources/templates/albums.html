@@ -17,6 +17,7 @@
     <br><span th:text="${album.songCount}">Album Song Count</span>
     <br><span th:text="${album.length}">Album Length</span>
     <br><img th:src="${album.imageUrl}">
+    <br><a th:href="${'/view-album/' + album.title}">View this Album</a>
 </li>
 
 <form action="/addAlbum" method="post">
@@ -35,7 +36,5 @@
         <input type="submit" value="Add Album">
     </fieldset>
 </form>
-<div th:text="${testString}">Test Div</div>
-
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.shaneroach.songr.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -27,6 +28,20 @@ public class Album {
     int songCount;
     int length;
     String imageUrl;
+
+
+    @OneToMany(mappedBy = "songsOfAlbum", cascade = CascadeType.ALL)
+    @OrderBy("title")
+    List<Song> songsOfThisAlbum;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public List<Song> getSongsOfThisAlbum() {
+        return songsOfThisAlbum;
+    }
 
     public String getTitle() {
         return title;
