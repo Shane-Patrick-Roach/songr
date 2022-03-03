@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Songs</title>
+</head>
+<body>
+<form action="/edit-album" th:method="put">
+    <input type="hidden" name="id" th:value="${album.id}">
+    <label for="title">Album Title</label>
+    <input type="text" name="title" th:value="${album.title}">
+    <br><label for="artist">Artist</label>
+    <input type="text" name="artist" th:value="${album.artist}">
+    <br><label for="length">Album Length</label>
+    <input type="number" name="length" th:value="${album.length}">
+    <br><label for="songCount">Song Count</label>
+    <input type="number" name="songCount" th:value="${album.songCount}">
+    <br><label for="imageUrl">Image Url</label>
+    <input type="text" name="imageUrl" th:value="${album.imageUrl}">
+    <input type="submit" value="Edit Album">
+    <br>
+</form>
+
+<br>
+<form action="/delete-album" th:method="delete">
+    <input type="hidden" name="id" th:value="${album.id}">
+    <input type="submit" value="Delete Album">
+    <br>
+</form>
+
+<br><br>
+<form action="/add-song" th:method="post">
+    <input type="hidden" name="albumId" th:value="${album.id}">
+    <label for="title">Song Title</label>
+    <input type="text" name="title">
+    <br><label for="length">Song Length</label>
+    <input type="number" name="length">
+    <br><label for="trackNumber">Track Number</label>
+    <input type="number" name="trackNumber">
+    <input type="submit" value="Add Song">
+    <br>
+    <br>
+    <br>
+    <br>
+</form>
+
+<span th:each="song : ${songs}">
+    <div th:text="${'Song Name: ' + song.title}"></div>
+    <br><div th:text="${'Song length: ' + song.length}"></div>
+    <br><div th:text="${'Track Number: ' + song.trackNumber}"></div>
+    <br>
+    <br>
+    <br>
+</span>
+
+</body>
+</html>

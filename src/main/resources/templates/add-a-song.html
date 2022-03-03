@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a Song</title>
+</head>
+<body>
+<!--<form action="/delete-store" th:method="delete">-->
+<!--    <input type="hidden" name="id" th:value="${store.id}">-->
+<!--    <input type="submit" value="Delete Store">-->
+<!--    <br><br>-->
+<!--</form>-->
+<span th:each="song : ${songs}">
+    <div>Songs</div>
+    <div th:text="${'Song Name: ' + song.title}"></div>
+    <div th:text="${'Song length: ' + song.length}"></div>
+    <div th:text="${'Song trackNumber: ' + song.trackNumber}"></div>
+</span>
+<br><br>
+
+<form action="/add-song" th:method="post">
+    <input type="hidden" name="albumId" th:value="${album.id}">
+    <label for="title">Song Title</label>
+    <input type="text" name="title">
+    <br><label for="length">Length of Song in Seconds</label>
+    <input type="text" name="length">
+    <br><label for="trackNumber">Track Number of Song</label>
+    <input type="text" name="trackNumber">
+    <input type="submit" value="Add Song">
+    <br>
+</form>
+
+</body>
+</html>
